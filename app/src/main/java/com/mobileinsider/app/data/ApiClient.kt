@@ -48,7 +48,8 @@ object ApiClient {
 
             if (body != null) {
 
-                connection.doOutput = true
+                connection.doOutput =
+                    true
 
                 connection.setRequestProperty(
                     "Content-Type",
@@ -70,20 +71,14 @@ object ApiClient {
                 connection.responseCode
 
             val stream =
-                if (code in 200..299) {
-
+                if (code in 200..299)
                     connection.inputStream
-
-                } else {
-
+                else
                     connection.errorStream
-                }
 
             val response =
                 BufferedReader(
-                    InputStreamReader(
-                        stream
-                    )
+                    InputStreamReader(stream)
                 ).use {
                     it.readText()
                 }
@@ -95,10 +90,10 @@ object ApiClient {
                         JSONObject(response)
                             .optString(
                                 "error",
-                                "Request failed."
+                                "Request failed"
                             )
                     } catch (_: Exception) {
-                        "Request failed."
+                        "Request failed"
                     }
                 )
             }
