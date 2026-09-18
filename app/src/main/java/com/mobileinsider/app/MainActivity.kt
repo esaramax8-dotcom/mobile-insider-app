@@ -22,12 +22,12 @@ class MainActivity : ComponentActivity() {
             MobileInsiderTheme {
 
                 Surface(
-                    modifier = Modifier.fillMaxSize()
+                    modifier =
+                        Modifier.fillMaxSize()
                 ) {
 
                     AppNavigation(
-                        navController =
-                            rememberNavController()
+                        rememberNavController()
                     )
                 }
             }
